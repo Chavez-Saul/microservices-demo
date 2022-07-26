@@ -10,6 +10,8 @@ metadata:
   name: carts
   labels:
     name: carts
+    app: carts
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -20,6 +22,8 @@ spec:
     metadata:
       labels:
         name: carts
+        app: carts
+        version: v1
     spec:
       containers:
       - name: carts
@@ -63,6 +67,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: carts
+    app: carts
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -78,6 +84,8 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
+    app: carts-db
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -88,6 +96,8 @@ spec:
     metadata:
       labels:
         name: carts-db
+        app: carts-db
+        version: v1
     spec:
       containers:
       - name: carts-db
@@ -103,7 +113,7 @@ spec:
               - CHOWN
               - SETGID
               - SETUID
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
@@ -120,6 +130,8 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
+    app: carts-db
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -135,6 +147,8 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
+    app: catalogue
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -145,6 +159,8 @@ spec:
     metadata:
       labels:
         name: catalogue
+        app: catalogue
+        version: v1
     spec:
       containers:
       - name: catalogue
@@ -193,6 +209,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: catalogue
+    app: catalogue
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -208,6 +226,8 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
+    app: catalogue-db
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -218,6 +238,8 @@ spec:
     metadata:
       labels:
         name: catalogue-db
+        app: catalogue-db
+        version: v1
     spec:
       containers:
       - name: catalogue-db
@@ -239,6 +261,8 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
+    app: catalogue-db
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -252,6 +276,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
+  app: front-end
+  version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -262,6 +288,8 @@ spec:
     metadata:
       labels:
         name: front-end
+        app: front-end
+        version: v1
     spec:
       containers:
       - name: front-end
@@ -308,6 +336,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: front-end
+    app: front-end
+    version: v1
   namespace: sock-shop
 spec:
   type: NodePort
@@ -324,6 +354,8 @@ metadata:
   name: orders
   labels:
     name: orders
+    app: orders
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -334,6 +366,8 @@ spec:
     metadata:
       labels:
         name: orders
+        app: orders
+        version: v1
     spec:
       containers:
       - name: orders
@@ -377,6 +411,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: orders
+    app: orders
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -392,6 +428,8 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
+    app: orders-db
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -402,6 +440,8 @@ spec:
     metadata:
       labels:
         name: orders-db
+        app: orders-db
+        version: v1
     spec:
       containers:
       - name: orders-db
@@ -417,7 +457,7 @@ spec:
               - CHOWN
               - SETGID
               - SETUID
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
@@ -434,6 +474,8 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
+    app: orders-db
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -449,6 +491,8 @@ metadata:
   name: payment
   labels:
     name: payment
+    app: payment
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -459,6 +503,8 @@ spec:
     metadata:
       labels:
         name: payment
+        app: payment
+        version: v1
     spec:
       containers:
       - name: payment
@@ -504,6 +550,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: payment
+    app: payment
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -519,6 +567,8 @@ metadata:
   name: queue-master
   labels:
     name: queue-master
+    app: queue-master
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -529,6 +579,8 @@ spec:
     metadata:
       labels:
         name: queue-master
+        app: queue-master
+        version: v1
     spec:
       containers:
       - name: queue-master
@@ -556,6 +608,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: queue-master
+    app: queue-master
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -571,6 +625,8 @@ metadata:
   name: rabbitmq
   labels:
     name: rabbitmq
+    app: rabbitmq
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -581,6 +637,8 @@ spec:
     metadata:
       labels:
         name: rabbitmq
+        app: rabbitmq
+        version: v1
       annotations:
         prometheus.io/scrape: "false"
     spec:
@@ -601,7 +659,7 @@ spec:
               - SETGID
               - SETUID
               - DAC_OVERRIDE
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
       - name: rabbitmq-exporter
         image: kbudde/rabbitmq-exporter
         ports:
@@ -619,6 +677,8 @@ metadata:
         prometheus.io/port: '9090'
   labels:
     name: rabbitmq
+    app: rabbitmq
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -639,6 +699,8 @@ metadata:
   name: session-db
   labels:
     name: session-db
+    app: session-db
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -649,6 +711,8 @@ spec:
     metadata:
       labels:
         name: session-db
+        app: session-db
+        version: v1
       annotations:
         prometheus.io.scrape: "false"
     spec:
@@ -676,6 +740,8 @@ metadata:
   name: session-db
   labels:
     name: session-db
+    app: session-db
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -691,6 +757,8 @@ metadata:
   name: shipping
   labels:
     name: shipping
+    app: shipping
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -701,6 +769,8 @@ spec:
     metadata:
       labels:
         name: shipping
+        app: shipping
+        version: v1
     spec:
       containers:
       - name: shipping
@@ -746,6 +816,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: shipping
+    app: shipping
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -762,6 +834,8 @@ metadata:
   name: user
   labels:
     name: user
+    app: user
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -772,6 +846,8 @@ spec:
     metadata:
       labels:
         name: user
+        app: user
+        version: v1
     spec:
       containers:
       - name: user
@@ -820,6 +896,8 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: user
+    app: user
+    version: v1
   namespace: sock-shop
 spec:
   ports:
@@ -836,6 +914,8 @@ metadata:
   name: user-db
   labels:
     name: user-db
+    app: user-db
+    version: v1
   namespace: sock-shop
 spec:
   replicas: 1
@@ -846,6 +926,8 @@ spec:
     metadata:
       labels:
         name: user-db
+        app: user-db
+        version: v1
     spec:
       containers:
       - name: user-db
@@ -879,6 +961,8 @@ metadata:
   name: user-db
   labels:
     name: user-db
+    app: user-db
+    version: v1
   namespace: sock-shop
 spec:
   ports:
